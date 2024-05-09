@@ -20,6 +20,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - S2iD
 - ViaCep
 - Gemini
+- WhatsappCloud
 
 **Frontend:**
 - Blazor
