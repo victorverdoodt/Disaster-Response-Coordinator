@@ -12,6 +12,11 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 </div>
 <br>
 
+**Externo:**
+- GooglePlaces
+- GoogleGeo
+- S2iD
+
 **Frontend:**
 - Blazor
 
