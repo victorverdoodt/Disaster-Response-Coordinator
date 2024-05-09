@@ -21,7 +21,7 @@ namespace DRC.App.Components.Pages
         private NavigationManager NavigationManager { get; set; } // Injeção do NavigationManager
 
         private List<MessageSave> messages = new List<MessageSave>();
-        private string prompt = "Write a 10 word description of OpenAI ChatGPT";
+        private string prompt = "Olá";
         private string ErrorMessage = "";
         private bool Processing = false;
         private Guid? guid = null;
