@@ -31,6 +31,7 @@ namespace DRC.App.Components.Pages
             prompt = "Olá";
             messages = new List<MessageSave>();
             ErrorMessage = "";
+            guid = null;
             StateHasChanged();
         }
 
