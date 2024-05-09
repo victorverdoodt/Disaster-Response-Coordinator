@@ -56,6 +56,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 <div>
   <a href="https://www.linkedin.com/in/victor-verdoodt/"><img src="https://img.shields.io/badge/linkedin-0077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   <a href="https://github.com/victorverdoodt/"><img src="https://img.shields.io/badge/github-3b4c52.svg?style=for-the-badge&logo=github&logoColor=white"></a>
+  <a href="https://discord.com/channels/1228404913705451612/1228406162618060913/1238128762307219558"><img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white"></a>
 </div>
 
 ## Resultado
