@@ -18,6 +18,7 @@
     <PackageReference Include="OpenTelemetry" Version="1.8.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="ViaCep" Version="4.1.495" />
+    <PackageReference Include="WhatsappBusiness.CloudApi" Version="1.0.29" />
   </ItemGroup>
 
   <ItemGroup>

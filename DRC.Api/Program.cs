@@ -3,6 +3,8 @@ using ChatAIze.GenerativeCS.Extensions;
 using DRC.Api.Interfaces;
 using DRC.Api.Services;
 using ViaCep;
+using WhatsappBusiness.CloudApi.Configurations;
+using WhatsappBusiness.CloudApi.Extensions;
 
 namespace DRC.Api
 {
@@ -13,9 +15,23 @@ namespace DRC.Api
             var builder = WebApplication.CreateBuilder(args);
             builder.AddServiceDefaults();
 
-            builder.Services.AddGeminiClient(builder.Configuration["Gemini"]);
+            builder.Services.AddGeminiClient(builder.Configuration["Apps:Gemini:Key"]);
 
-            builder.Services.AddHttpClient<IViaCepClient, ViaCepClient>(client => { client.BaseAddress = new Uri("https://viacep.com.br/"); });
+            builder.Services.AddWhatsAppBusinessCloudApiService(
+                new WhatsAppBusinessCloudApiConfig
+                {
+                    AccessToken = builder.Configuration["Apps:Meta:AccessToken"],
+                    AppName = builder.Configuration["Apps:Meta:AppName"],
+                    WhatsAppBusinessAccountId = builder.Configuration["Apps:Meta:WhatsAppBusinessAccountId"],
+                    WhatsAppBusinessId = builder.Configuration["Apps:Meta:WhatsAppBusinessId"],
+                    WhatsAppBusinessPhoneNumberId = builder.Configuration["Apps:Meta:WhatsAppBusinessPhoneNumberId"]
+                });
+
+            builder.Services.AddHttpClient<IViaCepClient, ViaCepClient>(client => 
+            { 
+                client.BaseAddress = new Uri("https://viacep.com.br/"); 
+            });
+
             builder.Services.AddHttpClient<IS2iDService, S2iDService>(client =>
             {
                 client.BaseAddress = new Uri("https://s2id.mi.gov.br");
@@ -36,6 +52,7 @@ namespace DRC.Api
             builder.Services.AddScoped<ICepService, CepService>();
             builder.Services.AddScoped<IChatCacheService, ChatCacheService>();
             builder.Services.AddScoped<IChatService, ChatService>();
+            builder.Services.AddScoped<IWhatAppService, WhatsAppCloudService>();
 
             builder.Services.AddControllers();
             

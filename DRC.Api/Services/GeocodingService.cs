@@ -16,7 +16,7 @@ namespace DRC.Api.Services
 
         public async Task<(double Latitude, double Longitude)> GetCoordinatesByPostalCodeAsync(string postalCode)
         {
-            var url = $"?address={postalCode}&key={_configuration["GoogleKey"]}";
+            var url = $"?address={postalCode}&key={_configuration["Apps:Google:Key"]}";
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();

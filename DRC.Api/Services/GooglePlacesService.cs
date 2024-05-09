@@ -15,7 +15,7 @@ namespace DRC.Api.Services
 
         public async Task<string> GetHospitalsAsync(double latitude, double longitude)
         {
-            var url = $"?location={latitude},{longitude}&radius=10000&type=hospital&key={_configuration["GoogleKey"]}";
+            var url = $"?location={latitude},{longitude}&radius=10000&type=hospital&key={_configuration["Apps:Google:Key"]}";
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
 

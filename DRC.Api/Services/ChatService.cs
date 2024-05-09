@@ -51,7 +51,6 @@ namespace DRC.Api.Services
             return await _googlePlacesService.GetHospitalsAsync(city.Latitude, city.Longitude);
         }
 
-
         private async Task<Dictionary<string, Cobrade>> GetCobradesAsync()
         {
             var cacheKey = "cobrades2";
@@ -95,7 +94,6 @@ namespace DRC.Api.Services
                 return "sem nenhum desastre!";
             }
         }
-
         public async Task StartChat(Guid? guid = null)
         {
             _chatCompletionOptions.AddFunction(GetCurrentAddress);
@@ -107,15 +105,19 @@ namespace DRC.Api.Services
             if (guid.HasValue)
             {
                 _chatConversation = await _chatCacheService.GetConversationAsync(guid.Value);
-                return;
+                if(_chatConversation != null )
+                    return;
             }
-
+            else
+            {
+                guid = Guid.NewGuid();
+            }
+            
             _chatConversation = new()
             {
-                UserTrackingId = Guid.NewGuid().ToString()
-            };
-
-
+                    UserTrackingId = guid.ToString()
+             };
+            
 
             string prompt = @$"""Você é um especialista em assistência emergencial e sua tarefa é identificar e responder às necessidades do usuário de forma humanizada e atenciosa durante uma situação de emergência. Inicie a conversa pedindo ao usuário que informe como você pode ajudá-lo, oferecendo opções como abrigosou informações sobre o estado atual do desastre. Baseado na resposta do usuário, você solicitará informações adicionais, como o CEP, para fornecer a assistência mais precisa. Depois, você usará funções específicas para verificar a localidade, o status do desastre e a disponibilidade de abrigos.""
 
