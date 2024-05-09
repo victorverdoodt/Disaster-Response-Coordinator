@@ -38,11 +38,17 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 ## Iniciar o Projeto
 - AppHost: Execute o arquivo AppHost para iniciar os componentes do projeto (Redis, backend e frontend).
 
-## TODO
-- Integração com Whatapp. ✔ (Feito)
+## Pronto
+- Interface de chat. ✔
+- contexto persistente. ✔
+- integração com o Sistema Integrado de Informações sobre Desastres v3. ✔
+- Integração com Whatapp. ✔
+- Integração com ViaCep. ✔
+- Integração com GooglePlaces e GoogleGeo. ✔
+  
+## A Fazer
 - Criação de um banco de abrigos.
 - Funcionalidade para pedir ajuda.
-
 
 ## Autor
 
