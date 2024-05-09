@@ -18,6 +18,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - GoogleGeo
 - S2iD
 - ViaCep
+- Gemini
 
 **Frontend:**
 - Blazor
