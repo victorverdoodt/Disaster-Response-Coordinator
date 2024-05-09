@@ -7,6 +7,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 ## Tecnologias Utilizadas
 
 <div align="center">
+  <img src="https://logospng.org/wp-content/uploads/google-gemini.png" alt="logo gemini" width="150" style="margin-right: 20px;">
   <img src="https://learn.microsoft.com/pt-br/dotnet/media/dotnet-aspire-logo.png" alt="logo aspire" width="150" style="margin-right: 20px;">
   <img src="https://cdn.worldvectorlogo.com/logos/redis.svg" alt="logo redis" width="150" style="margin-right: 20px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Microsoft_.NET_logo.svg/64px-Microsoft_.NET_logo.svg.png" alt="logo .NET" width="100" style="margin-right: 20px;">
