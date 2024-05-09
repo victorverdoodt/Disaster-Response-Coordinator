@@ -1,0 +1,56 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<h1>Chat</h1>
+<div id="chatcontainer" style="height:550px; width:80%; overflow: scroll;">
+    @foreach (var item in messages)
+    {
+        <div>
+            @if (item.Role == 1)
+            {
+                <div style="float: right; margin-right: 20px; margin-top: 10px">
+                    <b>Human</b>
+                </div>
+                <div class="user">
+                    <div class="msg">
+                        @item.Prompt
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div style="float: left; margin-left: 20px; margin-top: 10px">
+                    <b>Bot&nbsp;&nbsp;</b>
+                </div>
+                <div class="assistant">
+                    <div class="msg">
+                        @if (item.Prompt != null)
+                        {
+                            @((MarkupString)item.Prompt)
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+@if (!Processing)
+{
+    <textarea rows="3" cols="60" @bind="prompt" />
+    <br />
+    <button class="btn btn-primary"
+            @onclick="CallChat">
+        Send
+    </button>
+    <span>&nbsp;</span>
+    <button class="btn btn-info"
+            @onclick="Restart">
+        Restart
+    </button>
+}
+else
+{
+    <br>
+    <h4>Processing...</h4>
+}
+<br /><p style="color:red">@ErrorMessage</p>

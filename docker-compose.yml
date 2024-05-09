@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  drc.api:
+    image: ${DOCKER_REGISTRY-}drcapi
+    hostname: api
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    build:
+      context: .
+      dockerfile: DRC.Api/Dockerfile
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  drc.app:
+    image: ${DOCKER_REGISTRY-}drcapp
+    hostname: app
+    ports:
+      - "80:8080"
+      - "81:8081"
+    build:
+      context: .
+      dockerfile: DRC.App/Dockerfile
+    depends_on:
+      - drc.api
+
+  redis:
+    image: redis:latest
+    hostname: redis
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  default:
+    driver: bridge
+    name: net

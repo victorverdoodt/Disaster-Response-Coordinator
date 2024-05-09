@@ -1,0 +1,55 @@
+﻿textarea {
+    border: 1px dashed #888;
+    border-radius: 5px;
+    width: 80%;
+    overflow: auto;
+    background: #f7f7f7
+}
+/* improved CSS for speech bubbles */
+.assistant, .user {
+    position: relative;
+    font-family: arial;
+    font-size: 1.1em;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.assistant:after, .user:after {
+    content: '';
+    border: 20px solid transparent;
+    position: absolute;
+    margin-top: -30px;
+}
+
+.user {
+    background: #03a9f4;
+    color: #fff;
+    margin-left: 20%;
+    margin-right: 100px;
+    top: 30%;
+    text-align: right;
+}
+
+.assistant {
+    background: #4CAF50;
+    color: #fff;
+    margin-left: 100px;
+    margin-right: 20%;
+}
+
+.user:after {
+    border-left-color: #03a9f4;
+    border-right: 0;
+    right: -20px;
+}
+
+.assistant:after {
+    border-right-color: #4CAF50;
+    border-left: 0;
+    left: -20px;
+}
+
+.msg {
+    font-size: medium;
+}
