@@ -16,7 +16,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - Blazor
 
 **API:**
-- .NET com `Entity Framework Core`
+- .NET com `.NET Aspire`
 
 ## Autor
 
