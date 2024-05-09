@@ -41,13 +41,13 @@ namespace DRC.Api.Services
         [Description("Localiza um endereço via CEP")]
         private async Task<ViaCepResult> GetCurrentAddress(string cep)
         {
-            return await _cepService.FindAddressByCep(cep);
+            return await _cepService.FindAddressByCep(cep.Trim().Replace("-", string.Empty));
         }
 
         [Description("Localiza um endereço via CEP")]
         private async Task<string> GetAvailableShelters(string cep)
         {
-            var city = await _geocodingService.GetCoordinatesByPostalCodeAsync(cep);
+            var city = await _geocodingService.GetCoordinatesByPostalCodeAsync(cep.Trim().Replace("-", string.Empty));
             return await _googlePlacesService.GetHospitalsAsync(city.Latitude, city.Longitude);
         }
 
@@ -75,7 +75,7 @@ namespace DRC.Api.Services
         {
             try
             {
-                var city = await GetCurrentAddress(cep);
+                var city = await GetCurrentAddress(cep.Trim().Replace("-", string.Empty));
                 var get = await _s2iDService.GetRecognitions();
                 var cobrades = await GetCobradesAsync();
 
