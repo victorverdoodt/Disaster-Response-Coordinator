@@ -22,10 +22,10 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - Gemini
 - WhatsappCloud
 
-**Frontend:**
+**Front-end:**
 - Blazor
 
-**API:**
+**Back-end:**
 - .NET com `.NET Aspire`
 
 ## Pré-requisitos
