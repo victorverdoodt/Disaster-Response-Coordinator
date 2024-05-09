@@ -27,6 +27,17 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 **API:**
 - .NET com `.NET Aspire`
 
+## Pré-requisitos
+- Instale o .NET 8 e verifique a instalação com dotnet --version.
+- Certifique-se de que o Aspire está configurado no seu ambiente .NET.
+- Instale o Docker para gerenciamento de containers.
+
+## Configuração do Projeto
+- appsettings.json: No diretório do projeto API, atualize o arquivo appsettings.json com as chaves necessárias (strings de conexão, chaves de API, etc.).
+
+## Iniciar o Projeto
+- AppHost: Execute o arquivo AppHost para iniciar os componentes do projeto (Redis, backend e frontend).
+
 ## Autor
 
 <div>
