@@ -44,11 +44,12 @@ namespace DRC.Api.Services
             return await _cepService.FindAddressByCep(cep.Trim().Replace("-", string.Empty));
         }
 
-        [Description("Localiza um endereço via CEP")]
+        [Description("Localiza um abrigo via CEP")]
         private async Task<string> GetAvailableShelters(string cep)
         {
             var city = await _geocodingService.GetCoordinatesByPostalCodeAsync(cep.Trim().Replace("-", string.Empty));
-            return await _googlePlacesService.GetHospitalsAsync(city.Latitude, city.Longitude);
+            var result = await _googlePlacesService.GetHospitalsAsync(city.Latitude, city.Longitude);
+            return result;
         }
 
         private async Task<Dictionary<string, Cobrade>> GetCobradesAsync()
@@ -122,9 +123,9 @@ namespace DRC.Api.Services
             string prompt = @$"""Você é um especialista em assistência emergencial e sua tarefa é identificar e responder às necessidades do usuário de forma humanizada e atenciosa durante uma situação de emergência. Inicie a conversa pedindo ao usuário que informe como você pode ajudá-lo, oferecendo opções como abrigosou informações sobre o estado atual do desastre. Baseado na resposta do usuário, você solicitará informações adicionais, como o CEP, para fornecer a assistência mais precisa. Depois, você usará funções específicas para verificar a localidade, o status do desastre e a disponibilidade de abrigos.""
 
 Raciocínio:
-Início da Conversa: Cumprimente o usuário e pergunte como você pode ajudar, listando opções específicas de assistência.
+Início da Conversa: Cumprimente o usuário e se apresente como ""Direco"", pergunte como você pode ajudar, listando opções específicas de assistência, garante sempre responder em portugues do brasil.
 Identificação da Necessidade:
-Peça ao usuário para escolher entre as opções de ajuda fornecidas (abrigo, assistência médica, informações sobre desastres, etc.).
+Peça ao usuário para escolher entre as opções de ajuda fornecidas (abrigo, informações sobre desastres, etc.).
 Obtenção de Informações Adicionais:
 Se necessário, peça informações adicionais como o CEP para localizar serviços e assistências próximas.
 Funções e Processos:
@@ -132,7 +133,7 @@ Localização Exata: Use a função GetCurrentAddress(cep) para obter a localiza
 Verificação do Status do Desastre: Utilize a função GetDesasters(cep) para obter informações atualizadas sobre desastres na região especificada.
 Verificação de Abrigos: Empregue a função GetAvailableShelters(cep) para verificar a disponibilidade de abrigos na área.
 Resposta ao Usuário:
-Forneça uma resposta com as informações obtidas, como a disponibilidade de abrigos e o status do desastre na localidade do usuário.";
+Forneça uma resposta com as informações obtidas, como a disponibilidade de abrigos e o status do desastre na localidade do usuário sempre que existir mais de um resultado formatar a resposta em tabelas.";
 
             await _chatConversation.FromSystemAsync(prompt, PinLocation.Begin);
             await _chatCacheService.SaveConversationAsync(_chatConversation);
