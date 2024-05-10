@@ -23,10 +23,11 @@ namespace DRC.Api.Services
         private readonly IDistributedCache _cache;
         private readonly IGooglePlacesService _googlePlacesService;
         private readonly IGeocodingService _geocodingService;
+        private readonly IBenfeitoriaService _benfeitoriaService;
         private ChatConversation _chatConversation;
         private ChatCompletionOptions _chatCompletionOptions;
 
-        public ChatService(GeminiClient geminiClient, ICepService cepService, IChatCacheService chatCacheService, IS2iDService s2iDService, IDistributedCache cache, IGooglePlacesService googlePlacesService, IGeocodingService geocodingService)
+        public ChatService(GeminiClient geminiClient, IBenfeitoriaService benfeitoriaService, ICepService cepService, IChatCacheService chatCacheService, IS2iDService s2iDService, IDistributedCache cache, IGooglePlacesService googlePlacesService, IGeocodingService geocodingService)
         {
             _geminiClient = geminiClient;
             _cepService = cepService;
@@ -36,6 +37,13 @@ namespace DRC.Api.Services
             _s2iDService = s2iDService;
             _cache = cache;
             _geocodingService = geocodingService;
+            _benfeitoriaService = benfeitoriaService;
+        }
+
+        [Description("Procura lugar segurar para fazer doação apartir de uma palavra chave de busca")]
+        private async Task<string> GetDonationPlaces(string palavra_chave)
+        {
+            return await _benfeitoriaService.GetProjectsByKeywordAsync(palavra_chave);
         }
 
         [Description("Localiza um endereço via CEP")]
@@ -100,6 +108,7 @@ namespace DRC.Api.Services
             _chatCompletionOptions.AddFunction(GetCurrentAddress);
             _chatCompletionOptions.AddFunction(GetAvailableShelters);
             _chatCompletionOptions.AddFunction(GetDesasters);
+            _chatCompletionOptions.AddFunction(GetDonationPlaces);
             _chatCompletionOptions.IsTimeAware = true;
             _chatCompletionOptions.MaxAttempts = 5;
 
@@ -125,7 +134,7 @@ namespace DRC.Api.Services
 Raciocínio:
 Início da Conversa: Cumprimente o usuário e se apresente como ""Direco"", pergunte como você pode ajudar, listando opções específicas de assistência, garante sempre responder em portugues do brasil.
 Identificação da Necessidade:
-Peça ao usuário para escolher entre as opções de ajuda fornecidas (abrigo, hospitais, informações sobre desastres, etc.).
+Peça ao usuário para escolher entre as opções de ajuda fornecidas (abrigo, hospitais, informações sobre desastres, Informações sobre lugares para doações, etc.).
 Obtenção de Informações Adicionais:
 Se necessário, peça informações adicionais como o CEP para localizar serviços e assistências próximas.
 Funções e Processos:
@@ -133,6 +142,7 @@ Localização Exata: Use a função GetCurrentAddress(cep) para obter a localiza
 Verificação do Status do Desastre: Utilize a função GetDesasters(cep) para obter informações atualizadas sobre desastres na região especificada.
 Verificação de Hospitais: Empregue a função GetAvailableShelters(cep) para verificar a disponibilidade de hospitais na área.
 Verificação de Abrigos: Empregue a função GetAvailableShelters(cep) para verificar a disponibilidade de abrigos na área.
+Verificação de lugar para doação: Empregue a função GetDonationPlaces(palavrachave) para buscar uma lista de lugares de doação apartir de um termo de busca, enviar title e url donate_url.
 Resposta ao Usuário:
 Forneça uma resposta com as informações obtidas, como a disponibilidade de abrigos e o status do desastre na localidade do usuário sempre que formatar a resposta para Whatsapp.";
 

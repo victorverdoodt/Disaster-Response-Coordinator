@@ -27,6 +27,11 @@ namespace DRC.Api
                     WhatsAppBusinessPhoneNumberId = builder.Configuration["Apps:Meta:WhatsAppBusinessPhoneNumberId"]
                 });
 
+            builder.Services.AddHttpClient<IBenfeitoriaService, BenfeitoriaService>(client =>
+            {
+                client.BaseAddress = new Uri("https://admin.pqd.benfeitoria.com/");
+            });
+
             builder.Services.AddHttpClient<IViaCepClient, ViaCepClient>(client => 
             { 
                 client.BaseAddress = new Uri("https://viacep.com.br/"); 
