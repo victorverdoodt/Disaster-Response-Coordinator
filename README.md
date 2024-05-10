@@ -46,10 +46,10 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - Integração com Whatapp. ✔
 - Integração com ViaCep. ✔
 - Integração com GooglePlaces e GoogleGeo. ✔
+- Localizando Hospitais por perto. ✔
   
 ## A Fazer
 - Criação de um banco de abrigos.
-- Funcionalidade para pedir ajuda.
 
 ## Autor
 
