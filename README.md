@@ -62,9 +62,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 ## Resultado
 
 <div align="center">
-  
-  ![image](https://github.com/victorverdoodt/Disaster-Response-Coordinator/assets/3966396/59b862dd-7c28-44be-b8eb-014c55d25ce2)
-  
-  ![image](https://github.com/victorverdoodt/Disaster-Response-Coordinator/assets/3966396/e9036667-db9c-4e49-ac0f-c0affd64c4ab)
-  
+  <img src="https://github.com/victorverdoodt/Disaster-Response-Coordinator/assets/3966396/59b862dd-7c28-44be-b8eb-014c55d25ce2" alt="image1" style="max-width: 40%; height: auto;">
+  <img src="https://github.com/victorverdoodt/Disaster-Response-Coordinator/assets/3966396/e9036667-db9c-4e49-ac0f-c0affd64c4ab" alt="image2" style="max-width: 40%; height: auto;">
 </div>
+
