@@ -21,6 +21,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - ViaCep
 - Gemini
 - WhatsappCloud
+- Paraquemdoar.com.br
 
 **Front-end:**
 - Blazor
@@ -47,6 +48,7 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - Integração com ViaCep. ✔
 - Integração com GooglePlaces e GoogleGeo. ✔
 - Localizando Hospitais por perto. ✔
+- Buscar lugares seguros para fazer doações. ✔
   
 ## A Fazer
 - Criação de um banco de abrigos.
