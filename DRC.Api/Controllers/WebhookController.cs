@@ -79,9 +79,9 @@ namespace DRC.Api.Controllers
                                         markMessageRequest.MessageId = metadata.Id;
                                         markMessageRequest.Status = "read";
 
-                                        await whatsAppBusinessClient.MarkMessageAsReadAsync(markMessageRequest);
+                                        //await whatsAppBusinessClient.MarkMessageAsReadAsync(markMessageRequest);
                                         await whatAppService.ReceiveMessage(metadata.From, metadata.Text.Body);
-
+                                        await whatsAppBusinessClient.MarkMessageAsReadAsync(markMessageRequest);
                                         return Ok(new
                                         {
                                             Message = "Text Message received"
