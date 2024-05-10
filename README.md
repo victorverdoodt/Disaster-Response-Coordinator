@@ -50,9 +50,6 @@ O projeto "Disaster Response Coordinator" é uma aplicação baseada em intelig�
 - Localizando Hospitais por perto. ✔
 - Buscar lugares seguros para fazer doações. ✔
   
-## A Fazer
-- Criação de um banco de abrigos.
-
 ## Autor
 
 <div>
