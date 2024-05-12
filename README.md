@@ -40,11 +40,6 @@ O "Disaster Response Coordinator" é um sistema interativo baseado em inteligên
 
 O `ChatService` é o coração da interação do usuário no "Disaster Response Coordinator". Este serviço gerencia a comunicação entre os usuários e o sistema, utilizando várias APIs e serviços para fornecer respostas precisas e oportunas durante emergências.
 
-## Tecnologias e Bibliotecas Utilizadas
-- `ChatAIze.GenerativeCS.*`: Bibliotecas para construção de respostas generativas baseadas em IA.
-- `System.Linq`, `System.Text.Json`, `System.Reflection.Emit`: Utilizadas para manipulação de dados e dinamismo na execução.
-- `Microsoft.Extensions.*`: Facilitam a configuração e o caching distribuído.
-
 ## Funcionalidades do Serviço
 O `ChatService` implementa a interface `IChatService` e realiza múltiplas funções críticas:
 
