@@ -1,6 +1,6 @@
 # Disaster Response Coordinator
 
-O "Disaster Response Coordinator" é um sistema interativo baseado em inteligência artificial para coordenação e suporte em situações de desastre. Utiliza a API do Gemini para facilitar a comunicação entre vítimas e serviços de emergência, integrando-se ao Sistema Integrado de Informações sobre Desastres v3.
+O 'Disaster Response Coordinator' é um sistema interativo baseado em inteligência artificial para coordenação e suporte em situações de desastre. Utiliza a API do Gemini para facilitar a comunicação entre vítimas e serviços de emergência, integrando-se ao Sistema Integrado de Informações sobre Desastres v3. Um diferencial significativo deste sistema é que o diálogo acontece por meio do WhatsApp, uma plataforma amplamente utilizada, tornando o pedido por ajuda muito mais acessível. Essa integração garante que mais pessoas possam alcançar assistência de forma rápida e eficiente em momentos críticos.
 
 ## Imersão em Inteligência Artificial - 2ª Edição (Alura)
 
